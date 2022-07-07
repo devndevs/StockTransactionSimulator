@@ -1,4 +1,4 @@
-import StockRepository from '../entities/stock.js';
+import StockRepository from '../repositories/stockRepository.js';
 import StockService from '../services/stockService.js';
 
 const generateInstance = ({ filepath }) => {

@@ -10,6 +10,7 @@ test('Stock Simulator Test Suite', async t => {
     const { server } = await import('../../src/index.js');
 
     const testServerAddress = `http://localhost:${testPort}/stocks`;
+
     await t.test('It should create a new stock object', async t => {
         const data = {
             symbol: 'PAYX',

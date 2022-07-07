@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, unlink } from 'node:fs/promises';
 export default class StockRepository {
     constructor({ file }) {
         this.file = file;
@@ -12,7 +12,7 @@ export default class StockRepository {
         return this.#currentFileContent();
     }
 
-    create(data) {
+    async create(data) {
         const currentFile = await this.#currentFileContent();
         currentFile.push(data);
 
@@ -21,18 +21,3 @@ export default class StockRepository {
         return data.id;
     }
 }
-
-/*
-const stockRepository = new StockRepository({
-    file: './../database/data.json',
-});
-
-
-console.log(
-    await stockRepository.create({
-        symbol: 'AAPL',
-        name: 'Apple',
-    }),
-);
-console.log(await stockRepository.find());
-*/
